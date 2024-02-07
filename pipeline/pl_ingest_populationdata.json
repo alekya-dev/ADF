@@ -71,6 +71,7 @@
 				"name": "check if file exists",
 				"type": "Validation",
 				"dependsOn": [],
+				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "ds_population_raw_gz",
