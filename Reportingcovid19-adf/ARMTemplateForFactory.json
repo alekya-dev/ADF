@@ -82,20 +82,40 @@
 							{
 								"referenceName": "ds_cases_deaths_http",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"relativeURL": {
+										"value": "@variables('sourceRelativestring')",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "ds_cases_death_dl",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"filename": {
+										"value": "@variables('sinkFileName')",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"sourceRelativestring": {
+						"type": "String",
+						"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
+					},
+					"sinkFileName": {
+						"type": "String",
+						"defaultValue": "cause_death.csv"
+					}
 				},
 				"annotations": []
 			},
@@ -282,6 +302,12 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
+				"variables": {
+					"sourceRelativestring": {
+						"type": "String",
+						"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -298,12 +324,20 @@
 					"referenceName": "ls_adls_covidreportingdl",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"filename": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "cause_death.csv",
+						"fileName": {
+							"value": "@dataset().filename",
+							"type": "Expression"
+						},
 						"folderPath": "ECDC",
 						"fileSystem": "raw"
 					},
@@ -327,12 +361,20 @@
 					"referenceName": "lsHttp_cases_deaths",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"relativeURL": {
+						"type": "String"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "HttpServerLocation",
-						"relativeUrl": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
+						"relativeUrl": {
+							"value": "@dataset().relativeURL",
+							"type": "Expression"
+						}
 					},
 					"columnDelimiter": ",",
 					"rowDelimiter": "\n",
