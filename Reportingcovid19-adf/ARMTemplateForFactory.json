@@ -17,7 +17,7 @@
 		},
 		"lsHttp_cases_deaths_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "https://github.com/"
 		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"type": "string",
@@ -332,13 +332,13 @@
 				"typeProperties": {
 					"location": {
 						"type": "HttpServerLocation",
-						"relativeUrl": "cloudboxacademy/covid19/blob/main/ecdc_data/cases_deaths.csv"
+						"relativeUrl": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
 					},
 					"columnDelimiter": ",",
 					"rowDelimiter": "\n",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
-					"quoteChar": null
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
 				"schema": []
 			},

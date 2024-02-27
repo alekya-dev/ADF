@@ -17,7 +17,7 @@
 		},
 		"lsHttp_cases_deaths_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "https://github.com/"
 		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"type": "string",

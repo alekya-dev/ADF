@@ -12,7 +12,7 @@
 			"value": ""
 		},
 		"lsHttp_cases_deaths_properties_typeProperties_url": {
-			"value": "https://github.com"
+			"value": "https://github.com/"
 		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"value": "https://coviddataforreportingdl.dfs.core.windows.net/"
