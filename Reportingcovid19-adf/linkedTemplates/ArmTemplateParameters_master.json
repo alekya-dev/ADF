@@ -21,7 +21,7 @@
 			"value": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
 		},
 		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
-			"value": "ECDC/cause_death.csv"
+			"value": "cause_death.csv"
 		},
 		"containerUri": {
 			"value": ""

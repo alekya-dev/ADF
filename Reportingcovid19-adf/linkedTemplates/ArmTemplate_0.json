@@ -29,7 +29,7 @@
 		},
 		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
 			"type": "string",
-			"defaultValue": "ECDC/cause_death.csv"
+			"defaultValue": "cause_death.csv"
 		}
 	},
 	"variables": {
@@ -516,7 +516,7 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2024-02-12T08:45:00",
+						"startTime": "2024-02-12T08:50:00",
 						"timeZone": "Eastern Standard Time",
 						"schedule": {
 							"minutes": [
