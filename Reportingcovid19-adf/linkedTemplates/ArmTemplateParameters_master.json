@@ -23,6 +23,12 @@
 		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
 			"value": "cause_death.csv"
 		},
+		"country_response_properties_pl_ingest_ECDC_parameters_HttpFilePath": {
+			"value": "cloudboxacademy/covid19/blob/main/ecdc_data/country_response.csv"
+		},
+		"country_response_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
+			"value": "country_response.csv"
+		},
 		"containerUri": {
 			"value": ""
 		},
