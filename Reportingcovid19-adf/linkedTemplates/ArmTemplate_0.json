@@ -23,11 +23,11 @@
 			"type": "string",
 			"defaultValue": "https://coviddataforreportingdl.dfs.core.windows.net/"
 		},
-		"cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath": {
+		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_HttpFilePath": {
 			"type": "string",
 			"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
 		},
-		"cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path": {
+		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
 			"type": "string",
 			"defaultValue": "ECDC/cause_death.csv"
 		}
@@ -214,13 +214,13 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_ingest_causedeath')]",
+			"name": "[concat(parameters('factoryName'), '/pl_ingest_ECDC')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy cause_death to data lake",
+						"name": "Copy ECDC data to data lake",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -502,12 +502,12 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pl_ingest_causedeath",
+							"referenceName": "pl_ingest_ECDC",
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"HttpFilePath": "[parameters('cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath')]",
-							"Dest_ECDC_Path": "[parameters('cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path')]"
+							"HttpFilePath": "[parameters('cause_death_trigger_properties_pl_ingest_ECDC_parameters_HttpFilePath')]",
+							"Dest_ECDC_Path": "[parameters('cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path')]"
 						}
 					}
 				],
@@ -530,7 +530,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_ingest_causedeath')]"
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_ECDC')]"
 			]
 		}
 	]

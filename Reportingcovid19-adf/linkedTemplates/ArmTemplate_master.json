@@ -23,11 +23,11 @@
 			"type": "string",
 			"defaultValue": "https://coviddataforreportingdl.dfs.core.windows.net/"
 		},
-		"cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath": {
+		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_HttpFilePath": {
 			"type": "string",
 			"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
 		},
-		"cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path": {
+		"cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
 			"type": "string",
 			"defaultValue": "ECDC/cause_death.csv"
 		},
@@ -70,11 +70,11 @@
 					"ls_adls_covidreportingdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidreportingdl_properties_typeProperties_url')]"
 					},
-					"cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath": {
-						"value": "[parameters('cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath')]"
+					"cause_death_trigger_properties_pl_ingest_ECDC_parameters_HttpFilePath": {
+						"value": "[parameters('cause_death_trigger_properties_pl_ingest_ECDC_parameters_HttpFilePath')]"
 					},
-					"cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path": {
-						"value": "[parameters('cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path')]"
+					"cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path": {
+						"value": "[parameters('cause_death_trigger_properties_pl_ingest_ECDC_parameters_Dest_ECDC_Path')]"
 					}
 				}
 			},
