@@ -22,6 +22,14 @@
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://coviddataforreportingdl.dfs.core.windows.net/"
+		},
+		"cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath": {
+			"type": "string",
+			"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/cases_deaths.csv"
+		},
+		"cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path": {
+			"type": "string",
+			"defaultValue": "ECDC/cause_death.csv"
 		}
 	},
 	"variables": {
@@ -68,36 +76,6 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('ls_adls_covidreportingdl_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ScheduleTrigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Day",
-						"interval": 1,
-						"startTime": "2024-02-12T09:00:00",
-						"timeZone": "Eastern Standard Time",
-						"schedule": {
-							"minutes": [
-								30,
-								0
-							],
-							"hours": [
-								9,
-								11
-							]
-						}
 					}
 				}
 			},
@@ -512,6 +490,47 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_gz')]",
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_tsv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/cause_death_trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_ingest_causedeath",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"HttpFilePath": "[parameters('cause_death_trigger_properties_pl_ingest_causedeath_parameters_HttpFilePath')]",
+							"Dest_ECDC_Path": "[parameters('cause_death_trigger_properties_pl_ingest_causedeath_parameters_Dest_ECDC_Path')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2024-02-12T08:35:00",
+						"timeZone": "Eastern Standard Time",
+						"schedule": {
+							"minutes": [
+								30
+							],
+							"hours": [
+								9
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_causedeath')]"
 			]
 		}
 	]
