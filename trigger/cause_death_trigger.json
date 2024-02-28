@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pl_ingest_causedeath",
+					"referenceName": "pl_ingest_ECDC",
 					"type": "PipelineReference"
 				},
 				"parameters": {

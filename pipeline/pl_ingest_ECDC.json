@@ -1,9 +1,9 @@
 {
-	"name": "pl_ingest_causedeath",
+	"name": "pl_ingest_ECDC",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy cause_death to data lake",
+				"name": "Copy ECDC data to data lake",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
